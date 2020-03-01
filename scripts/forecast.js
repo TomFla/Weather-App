@@ -1,4 +1,4 @@
-const key = "9WnB3XQCMt5iMbBCbpTPJcHSBOnNADtC";
+const key = "o3nak4UldLxLilOK1qAJSNWx2rVTAOXh";
 
 // get weather information
 const getWeather = async id => {
@@ -21,12 +21,3 @@ const getCity = async city => {
 
   return data[0];
 };
-
-getCity("manchester")
-  .then(data => {
-    return getWeather(data.Key);
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(err => console.log(err));

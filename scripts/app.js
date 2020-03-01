@@ -1,17 +1,25 @@
 const cityForm = document.querySelector("form");
 
 const updateCity = async city => {
-  console.log(city);
+  const cityDets = await getCity(city);
+  const weather = await getWeather(cityDets.Key);
+
+  return {
+    cityDets: cityDets,
+    weather: weather
+  };
 };
 
-// prevent default action
 cityForm.addEventListener("submit", e => {
+  // prevent default action
   e.preventDefault();
 
-  // get citi value
-  const city = cityForm.city.value;
+  // get city value
+  const city = cityForm.city.value.trim();
   cityForm.reset();
 
   //   update the UI with the city
-  updateCity(city);
+  updateCity(city)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
 });
