@@ -3,8 +3,11 @@ const card = document.querySelector(".card");
 const details = document.querySelector(".details");
 
 const updateUI = data => {
-  const cityDets = data.cityDets;
-  const weather = data.weather;
+  // const cityDets = data.cityDets;
+  // const weather = data.weather;
+
+  // destructure data value this is the same as consts above but its shorter
+  const { cityDets, weather } = data;
 
   // update details template
   details.innerHTML = `
